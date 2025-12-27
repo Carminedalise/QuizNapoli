@@ -1,19 +1,19 @@
 const questions = [
-    { q: "Dove è stato vinto matematicamente lo scudetto 2023?", options: ["Napoli", "Udine", "Roma", "Torino"], correct: 1 },
-    { q: "Chi era l'allenatore del terzo scudetto?", options: ["Garcia", "Mazzarri", "Spalletti", "Conte"], correct: 2 },
-    { q: "Capocannoniere del Napoli 2022/23?", options: ["Kvara", "Osimhen", "Simeone", "Zielinski"], correct: 1 },
-    { q: "Chi è l'attuale allenatore (2024/25)?", options: ["Calzona", "Conte", "Italiano", "Mazzarri"], correct: 1 },
-    { q: "Squadra di provenienza di McTominay?", options: ["Chelsea", "Arsenal", "Man. United", "Liverpool"], correct: 2 },
-    { q: "Chi ha preso il posto di Kim in difesa nel 2024?", options: ["Buongiorno", "Natan", "Juan Jesus", "Rrahmani"], correct: 0 },
-    { q: "Punti totali scudetto 2023?", options: ["86", "90", "95", "100"], correct: 1 },
-    { q: "Chi è il nuovo DS del Napoli?", options: ["Giuntoli", "Manna", "Meluso", "Sartori"], correct: 1 },
-    { q: "Squadra attuale di Victor Osimhen?", options: ["PSG", "Chelsea", "Galatasaray", "Al-Ahli"], correct: 2 },
-    { q: "Chi è il capitano del Napoli?", options: ["Di Lorenzo", "Politano", "Lobotka", "Anguissa"], correct: 0 },
-    { q: "Da dove arriva Romelu Lukaku?", options: ["Inter", "Roma (via Chelsea)", "Everton", "Juventus"], correct: 1 },
-    { q: "Chi ha segnato il gol scudetto a Udine?", options: ["Kvara", "Osimhen", "Elmas", "Olivera"], correct: 1 },
-    { q: "Squadra di provenienza di David Neres?", options: ["Ajax", "Benfica", "Porto", "Shakhtar"], correct: 1 },
-    { q: "Nuovo centrocampista scozzese oltre McTominay?", options: ["Gilmour", "Adams", "McGinn", "Robertson"], correct: 0 },
-    { q: "Nome dello stadio del Napoli?", options: ["San Paolo", "Diego Armando Maradona", "Vesuvio Arena", "Fuorigrotta"], correct: 1 }
+    { q: "Dove è stato vinto lo scudetto il 4 maggio 2023?", options: ["Napoli", "Udine", "Salerno", "Roma"], correct: 1 },
+    { q: "Chi era l'allenatore dello scudetto 2023?", options: ["Garcia", "Spalletti", "Mazzarri", "Conte"], correct: 1 },
+    { q: "Chi è stato il capocannoniere 2022/23?", options: ["Kvara", "Simeone", "Osimhen", "Lozano"], correct: 2 },
+    { q: "Chi è l'attuale allenatore del Napoli?", options: ["Calzona", "Conte", "Manna", "De Rossi"], correct: 1 },
+    { q: "Squadra di provenienza di McTominay?", options: ["Chelsea", "Man. United", "Arsenal", "Celtic"], correct: 1 },
+    { q: "Chi è il nuovo difensore centrale dal Torino?", options: ["Rafa Marin", "Buongiorno", "Natan", "Hermoso"], correct: 1 },
+    { q: "Punti fatti nel campionato dello scudetto?", options: ["86", "90", "91", "88"], correct: 2 },
+    { q: "Contro chi ha debuttato Conte in Serie A col Napoli?", options: ["Modena", "Verona", "Bologna", "Parma"], correct: 1 },
+    { q: "In che squadra gioca ora Victor Osimhen?", options: ["PSG", "Galatasaray", "Chelsea", "Al-Ahli"], correct: 1 },
+    { q: "Chi è il capitano del Napoli?", options: ["Di Lorenzo", "Lobotka", "Rrahmani", "Politano"], correct: 0 },
+    { q: "Da dove è stato acquistato Lukaku?", options: ["Inter", "Chelsea", "Roma", "Everton"], correct: 1 },
+    { q: "Chi ha segnato il gol del pareggio a Udine?", options: ["Osimhen", "Kvara", "Zielinski", "Di Lorenzo"], correct: 0 },
+    { q: "Il nuovo esterno arrivato dal Benfica?", options: ["Neres", "Spinazzola", "Mazzocchi", "Politano"], correct: 0 },
+    { q: "Il nome del nuovo DS azzurro?", options: ["Giuntoli", "Manna", "Meluso", "Sartori"], correct: 1 },
+    { q: "Il nome dello stadio oggi?", options: ["San Paolo", "Diego Armando Maradona", "Vesuvio", "Fuorigrotta"], correct: 1 }
 ];
 
 let currentQuestionIndex = 0;
@@ -26,6 +26,7 @@ const resultSection = document.getElementById('result-section');
 const gameSection = document.getElementById('game-section');
 const finalScoreText = document.getElementById('final-score');
 const restartBtn = document.getElementById('restart-btn');
+const logo = document.getElementById('napoli-logo');
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -37,7 +38,7 @@ function startQuiz() {
 
 function showQuestion() {
     const currentQ = questions[currentQuestionIndex];
-    questionText.innerText = currentQ.q;
+    questionText.innerText = `${currentQuestionIndex + 1}. ${currentQ.q}`;
     optionsContainer.innerHTML = '';
     nextBtn.style.display = 'none';
 
@@ -54,27 +55,42 @@ function selectOption(index) {
     const correctIndex = questions[currentQuestionIndex].correct;
     const buttons = document.querySelectorAll('.option-btn');
     
+    // Rimuove l'animazione precedente per poterla riattivare
+    logo.classList.remove('bounce');
+
     buttons.forEach((btn, i) => {
         btn.disabled = true;
-        if (i === correctIndex) btn.style.backgroundColor = "#4CAF50";
-        else if (i === index) btn.style.backgroundColor = "#f44336";
+        if (i === correctIndex) {
+            btn.style.backgroundColor = "#4CAF50";
+            btn.style.color = "white";
+        } else if (i === index) {
+            btn.style.backgroundColor = "#f44336";
+            btn.style.color = "white";
+        }
     });
 
-    if (index === correctIndex) score++;
+    if (index === correctIndex) {
+        score++;
+        // Attiva l'animazione del logo se la risposta è giusta!
+        setTimeout(() => logo.classList.add('bounce'), 10);
+    }
+    
     nextBtn.style.display = 'inline-block';
 }
 
 nextBtn.onclick = () => {
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) showQuestion();
-    else showResult();
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
+    } else {
+        showResult();
+    }
 };
 
 function showResult() {
     gameSection.classList.add('hidden');
     resultSection.classList.remove('hidden');
-    finalScoreText.innerText = `Punteggio: ${score} / ${questions.length}`;
-    restartBtn.style.display = "inline-block";
+    finalScoreText.innerText = `Hai totalizzato ${score} su ${questions.length} punti!`;
 }
 
 restartBtn.onclick = startQuiz;
