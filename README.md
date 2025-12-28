@@ -1,32 +1,29 @@
-# ⚽ Napoli Quiz - Dall'Era Scudetto a Conte
+# ⚽ Napoli Quiz App - Android Native (Capacitor)
 
-## ✍️ Autore
-Questo gioco è stato ideato e sviluppato da **Carmine Dalise**.
+Un'applicazione Android interattiva dedicata alla SSC Napoli, sviluppata come progetto di portfolio per dimostrare l'integrazione tra tecnologie Web (HTML/CSS/JS) e l'ambiente nativo Android tramite **Capacitor**.
 
-https://iacreatorcar.github.io/QuizNapoli/
+## 🚀 Caratteristiche
+- **Quiz Dinamico**: 15 domande sulla storia del Napoli (dai tempi di Maradona al terzo scudetto).
+- **Timer Integrato**: Ogni domanda ha un limite di 10 secondi per testare i riflessi dell'utente.
+- **Design Responsive**: Interfaccia ottimizzata per dispositivi moderni (testata su Samsung Galaxy S24).
+- **Native Bridge**: Utilizzo di Capacitor per la comunicazione tra JavaScript e Android Studio.
 
-### 🤝 Contributi
-I contributi sono sempre benvenuti! Se hai nuove domande da suggerire o miglioramenti al codice:
+## 🛠️ Tech Stack
+- **Frontend**: HTML5, CSS3 (Azzurro Napoli Design), JavaScript (ES6).
+- **Mobile Framework**: [Ionic Capacitor](https://capacitorjs.com/).
+- **IDE**: Android Studio & VS Code.
+- **Debug**: Wireless Debugging su Android 14.
 
-Un'applicazione web interattiva dedicata ai tifosi della **SSC Napoli**. Il quiz mette alla prova la conoscenza dell'utente sugli eventi che vanno dalla vittoria del terzo storico scudetto (maggio 2023) fino all'attuale stagione 2024/2025 sotto la guida di Antonio Conte.
+## 📱 Installazione e Test
+Se vuoi provare l'app direttamente sul tuo smartphone Android:
+1. Scarica il file `NapoliQuiz.apk` presente in questo repository.
+2. Autorizza l'installazione da fonti sconosciute nelle impostazioni del tuo telefono.
+3. Tifosi del Napoli, siete pronti?
 
-## 🚀 Funzionalità
-- **15 Domande dinamiche:** Copre calciomercato, record, allenatori e momenti chiave.
-- **Feedback visivo immediato:** Le risposte corrette ed errate vengono evidenziate in tempo reale.
-- **Animazioni CSS:** Il logo del Napoli reagisce con un'animazione "bounce" ogni volta che indovini una risposta!
-- **Design Responsive:** Ottimizzato per essere giocato sia su desktop che su smartphone.
-- **Punteggio Finale:** Calcolo automatico della performance con possibilità di rigiocare.
+## 📂 Struttura del Progetto
+- `/www`: Contiene il codice sorgente web (Logica, stili e asset).
+- `/android`: Il progetto nativo generato per Android Studio.
+- `app-debug.apk`: Build pronta per il test.
 
-## 🛠️ Tecnologie Utilizzate
-* **HTML5:** Struttura semantica del gioco.
-* **CSS3:** Styling personalizzato, variabili per i colori ufficiali e animazioni `@keyframes`.
-* **JavaScript (ES6):** Gestione della logica del quiz, manipolazione del DOM e gestione degli stati del gioco.
-
-
-Rispondi alle 15 domande e cerca di totalizzare il punteggio massimo!
-Forza Napoli Sempre! 💙
-
-### 📜 Licenza
-Questo progetto è distribuito sotto licenza MIT.
-
- https://carminedalise.github.io/QuizNapoli/
+---
+*Sviluppato da Carmine - Progetto di Portfolio 2025*
