@@ -1,5 +1,11 @@
 # ⚽ Napoli Quiz - Dall'Era Scudetto a Conte
 
+## ✍️ Autore
+Questo gioco è stato ideato e sviluppato da **Carmine Dalise**.
+
+### 🤝 Contributi
+I contributi sono sempre benvenuti! Se hai nuove domande da suggerire o miglioramenti al codice:
+
 Un'applicazione web interattiva dedicata ai tifosi della **SSC Napoli**. Il quiz mette alla prova la conoscenza dell'utente sugli eventi che vanno dalla vittoria del terzo storico scudetto (maggio 2023) fino all'attuale stagione 2024/2025 sotto la guida di Antonio Conte.
 
 ## 🚀 Funzionalità
@@ -26,4 +32,8 @@ Apri il file index.html nel tuo browser preferito.
 
 Rispondi alle 15 domande e cerca di totalizzare il punteggio massimo!
 Forza Napoli Sempre! 💙
+
+### 📜 Licenza
+Questo progetto è distribuito sotto licenza MIT.
+
 https://iacreatorcar.github.io/QuizNapoli/
