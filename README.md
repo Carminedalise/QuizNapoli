@@ -21,7 +21,7 @@ Se vuoi provare l'app direttamente sul tuo smartphone Android:
 3. Tifosi del Napoli, siete pronti?
 
 ## 📂 Struttura del Progetto
-- `/www`: Contiene il codice sorgente web (Logica, stili e asset).
+- `https://iacreatorcar.github.io/QuizNapoli/ : Contiene il codice sorgente web (Logica, stili e asset).
 - `/android`: Il progetto nativo generato per Android Studio.
 - `app-debug.apk`: Build pronta per il test.
 
