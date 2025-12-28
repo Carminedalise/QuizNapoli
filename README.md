@@ -27,4 +27,4 @@ Forza Napoli Sempre! 💙
 ### 📜 Licenza
 Questo progetto è distribuito sotto licenza MIT.
 
-https://iacreatorcar.github.io/QuizNapoli/
+ https://carminedalise.github.io/QuizNapoli/
