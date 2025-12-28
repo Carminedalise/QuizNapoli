@@ -3,6 +3,8 @@
 ## ✍️ Autore
 Questo gioco è stato ideato e sviluppato da **Carmine Dalise**.
 
+https://iacreatorcar.github.io/QuizNapoli/
+
 ### 🤝 Contributi
 I contributi sono sempre benvenuti! Se hai nuove domande da suggerire o miglioramenti al codice:
 
