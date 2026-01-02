@@ -87,11 +87,31 @@ nextBtn.onclick = () => {
     }
 };
 
-function showResult() {
-    gameSection.classList.add('hidden');
-    resultSection.classList.remove('hidden');
-    finalScoreText.innerText = `Hai totalizzato ${score} su ${questions.length} punti!`;
-}
+function showResults() {
+    gameSection.classList.add("hidden");
+    document.getElementById("timer-container").classList.add("hidden");
+    resultSection.classList.remove("hidden");
+    
+    let messaggioSpeciale = "";
+    
+    // Se il punteggio è 15 su 15
+    if (score === domande.length) {
+        messaggioSpeciale = `
+            <div class="video-container">
+                <p>CAMPIONE! Sei un vero Ultras! 🏆💙</p>
+                <iframe src="https://www.youtube.com/watch?v=NbdBh9iTlio" 
+                        title="Napoli Campione" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>`;
+    } else {
+        messaggioSpeciale = `<p>Bravo, ma puoi fare di meglio per la maglia! ⚽</p>`;
+    }
+
+document.getElementById("restart-btn").onclick = () => {
+    location.reload();
+};
 
 restartBtn.onclick = startQuiz;
 startQuiz();
