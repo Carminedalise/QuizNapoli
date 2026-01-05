@@ -1,3 +1,8 @@
+// Aggiungi questo in cima al tuo script.js su GitHub
+window.onload = () => {
+    startQuiz();
+};
+
 let currentQuestionIndex = 0;
 let score = 0;
 let timer;
