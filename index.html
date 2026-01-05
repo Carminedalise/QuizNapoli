@@ -3,29 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Napoli Quiz 2023-2025</title>
+    <title>Napoli Quiz 15 Domande</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="quiz-container" id="quiz-box">
-  <img src="assets/logo_napoli.png" alt="Logo SSC Napoli" class="logo">
-    
+    <img src="logo_napoli.png" alt="Logo Napoli" class="logo">
     <h1>Napoli Quiz</h1>
+
+    <div id="timer-container">
+        Tempo rimasto: <span id="time-left">10</span>s
+    </div>
     
     <div id="game-section">
-        <div class="question" id="question-text">Caricamento domanda...</div>
+        <div class="question" id="question-text">Caricamento...</div>
         <div class="options" id="options-container"></div>
-        <button id="next-btn">Prossima Domanda</button>
     </div>
 
     <div id="result-section" class="hidden">
-        <h2>Quiz Completato! 💙</h2>
+        <h2>Risultato Finale</h2>
         <p id="final-score"></p>
-        <button id="restart-btn" style="display:inline-block;">Ricomincia</button>
+        <button id="restart-btn">Riprova</button>
     </div>
 </div>
 
+<script src="domande.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
