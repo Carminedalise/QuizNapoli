@@ -1,44 +1,50 @@
-// Aggiungi questo in cima al tuo script.js su GitHub
-window.onload = () => {
-    startQuiz();
-};
-
 let currentQuestionIndex = 0;
 let score = 0;
+let timer;
+let timeLeft = 10;
 
-const questionText = document.getElementById('question-text');
-const optionsContainer = document.getElementById('options-container');
-const resultSection = document.getElementById('result-section');
-const gameSection = document.getElementById('game-section');
-const finalScoreText = document.getElementById('final-score');
+const timeDisplay = document.getElementById('time-left');
 
-function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    if (resultSection) resultSection.classList.add('hidden');
-    if (gameSection) gameSection.classList.remove('hidden');
-    showQuestion();
+function startTimer() {
+    timeLeft = 10;
+    if(timeDisplay) timeDisplay.innerText = timeLeft;
+    clearInterval(timer);
+    timer = setInterval(() => {
+        timeLeft--;
+        if(timeDisplay) timeDisplay.innerText = timeLeft;
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            nextQuestion(); // Passa alla domanda successiva se il tempo scade
+        }
+    }, 1000);
 }
 
 function showQuestion() {
+    startTimer(); // Fai partire il timer ogni volta che mostri una domanda
     const currentQ = questions[currentQuestionIndex];
-    questionText.innerText = currentQ.q;
-    optionsContainer.innerHTML = '';
+    document.getElementById('question-text').innerText = currentQ.q;
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
 
     currentQ.options.forEach((option, index) => {
         const button = document.createElement('button');
         button.innerText = option;
         button.classList.add('option-btn');
         button.onclick = () => selectOption(index);
-        optionsContainer.appendChild(button);
+        container.appendChild(button);
     });
 }
 
 function selectOption(index) {
+    clearInterval(timer); // Ferma il timer quando l'utente risponde
     const correctIndex = questions[currentQuestionIndex].correct;
     if (index === correctIndex) {
         score++;
     }
+    nextQuestion();
+}
+
+function nextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         showQuestion();
@@ -47,11 +53,7 @@ function selectOption(index) {
     }
 }
 
-function showResults() {
-    gameSection.classList.add('hidden');
-    resultSection.classList.remove('hidden');
-    finalScoreText.innerText = `Hai totalizzato ${score} su ${questions.length}!`;
-}
-
-// Avvio automatico per la versione Web
-window.onload = startQuiz;
+// Avvio automatico al caricamento della pagina
+window.onload = () => {
+    startQuiz();
+};
